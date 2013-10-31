@@ -824,6 +824,9 @@
                             <binding destination="kEQ-LK-m5U" name="value" keyPath="representedObject.shortcut" id="Gyy-wI-yjd"/>
                         </connections>
                     </textFieldCell>
+                    <connections>
+                        <binding destination="kEQ-LK-m5U" name="value" keyPath="representedObject.shortcut" id="VVw-KF-HgI"/>
+                    </connections>
                 </textField>
             </subviews>
         </view>
