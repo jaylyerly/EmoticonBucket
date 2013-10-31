@@ -21,6 +21,7 @@
 		EC2F0E4F18207174004F5A17 /* EmoticonBucketTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2F0E4E18207174004F5A17 /* EmoticonBucketTests.m */; };
 		EC2F0E5A1820911F004F5A17 /* EMBDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2F0E591820911F004F5A17 /* EMBDownloadManager.m */; };
 		EC2F0E5D182092D4004F5A17 /* EMBAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2F0E5C182092D4004F5A17 /* EMBAppManager.m */; };
+		EC2F0E6018213B8A004F5A17 /* Emoticon.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2F0E5F18213B8A004F5A17 /* Emoticon.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		EC2F0E591820911F004F5A17 /* EMBDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMBDownloadManager.m; sourceTree = "<group>"; };
 		EC2F0E5B182092D4004F5A17 /* EMBAppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMBAppManager.h; sourceTree = "<group>"; };
 		EC2F0E5C182092D4004F5A17 /* EMBAppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMBAppManager.m; sourceTree = "<group>"; };
+		EC2F0E5E18213B8A004F5A17 /* Emoticon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Emoticon.h; sourceTree = "<group>"; };
+		EC2F0E5F18213B8A004F5A17 /* Emoticon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Emoticon.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +130,7 @@
 				EC2F0E3418207174004F5A17 /* EMBAppDelegate.m */,
 				EC2F0E3618207174004F5A17 /* MainMenu.xib */,
 				EC2F0E3C18207174004F5A17 /* Images.xcassets */,
-				EC2F0E3918207174004F5A17 /* EmoticonBucket.xcdatamodeld */,
+				EC2F0E6118213B98004F5A17 /* CoreData */,
 				EC2F0E2818207174004F5A17 /* Supporting Files */,
 				EC2F0E5B182092D4004F5A17 /* EMBAppManager.h */,
 				EC2F0E5C182092D4004F5A17 /* EMBAppManager.m */,
@@ -165,6 +168,16 @@
 				EC2F0E4B18207174004F5A17 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EC2F0E6118213B98004F5A17 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				EC2F0E3918207174004F5A17 /* EmoticonBucket.xcdatamodeld */,
+				EC2F0E5E18213B8A004F5A17 /* Emoticon.h */,
+				EC2F0E5F18213B8A004F5A17 /* Emoticon.m */,
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +284,7 @@
 				EC2F0E3518207174004F5A17 /* EMBAppDelegate.m in Sources */,
 				EC2F0E5A1820911F004F5A17 /* EMBDownloadManager.m in Sources */,
 				EC2F0E3B18207174004F5A17 /* EmoticonBucket.xcdatamodeld in Sources */,
+				EC2F0E6018213B8A004F5A17 /* Emoticon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

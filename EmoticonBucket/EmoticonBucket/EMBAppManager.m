@@ -8,6 +8,8 @@
 
 #import "EMBAppManager.h"
 #import "EMBDownloadManager.h"
+#import "EMBAppDelegate.h"
+#import "Emoticon.h"
 
 static const NSString* urlTemplate = @"https://api.hipchat.com/v2/emoticon?auth_token=%@";
 
@@ -56,6 +58,34 @@ static const NSString* urlTemplate = @"https://api.hipchat.com/v2/emoticon?auth_
     NSString *auth = [[NSUserDefaults standardUserDefaults] stringForKey:@"auth"];
     NSString *urlString = [NSString stringWithFormat:[urlTemplate copy], auth];
     return [NSURL URLWithString:urlString];
+}
+
+- (void)downloadFinished:(NSNotification *)notification{
+    NSLog(@"Download finished!");
+
+    for (Emoticon *eIcon in self.emoticons) {
+        NSLog(@"%@", eIcon.shortcut);
+    }
+    [self didChangeValueForKey:@"emoticons"];
+}
+
+- (NSArray *)emoticons {
+    NSManagedObjectModel   *mom = [(EMBAppDelegate*)[NSApplication sharedApplication].delegate managedObjectModel];
+    NSManagedObjectContext *moc = [(EMBAppDelegate*)[NSApplication sharedApplication].delegate managedObjectContext];
+    NSFetchRequest *fetchRequest = [mom fetchRequestTemplateForName:@"AllEmoticons"];
+    NSArray *eIcons = [moc executeFetchRequest:fetchRequest error:nil];
+    return eIcons;
+}
+
+- (void) awakeFromNib {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(downloadFinished:)
+                                                 name:kEMBDownloadFinished
+                                               object:nil];
+}
+
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

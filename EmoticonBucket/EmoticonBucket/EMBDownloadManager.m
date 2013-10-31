@@ -8,6 +8,9 @@
 
 #import "EMBDownloadManager.h"
 #import "EMBAppManager.h"
+#import "Emoticon.h"
+
+NSString * const kEMBDownloadFinished = @"EMB-DownloadFinished";
 
 @interface EMBDownloadManager ()
 @property (nonatomic, strong) EMBAppManager *appManager;
@@ -43,7 +46,10 @@
                                                                     error:&jsonParsingError];
              NSArray *items = parsedDict[@"items"];
              NSLog(@"parsed data = %@", items);
-             
+             for (NSDictionary *aDict in items){
+                 [Emoticon emoticonWithDictionary:aDict];
+             }
+             [[NSNotificationCenter defaultCenter] postNotificationName:kEMBDownloadFinished object:self];
          }
          else if ([data length] == 0 && error == nil)
          {

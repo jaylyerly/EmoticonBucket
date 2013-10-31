@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 @class EMBAppManager;
 
+extern NSString * const kEMBDownloadFinished;
+
 @interface EMBDownloadManager : NSObject
 
 - (instancetype) initWithManager:(EMBAppManager *)appManager;

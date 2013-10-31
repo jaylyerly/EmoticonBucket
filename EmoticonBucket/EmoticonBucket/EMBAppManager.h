@@ -11,6 +11,8 @@
 @interface EMBAppManager : NSObject
 
 @property (nonatomic, readonly) NSURL *dataUrl;
+@property (nonatomic, readonly) NSArray *emoticons;
+@property (nonatomic, readonly) IBOutlet NSCollectionView *collectionView;
 
 //+ (id)sharedManager;
 - (IBAction) updateData:(id)sender;
