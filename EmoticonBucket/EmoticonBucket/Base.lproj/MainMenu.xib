@@ -677,6 +677,33 @@
                             <action selector="makeKeyAndOrderFront:" target="cc6-le-6ay" id="UEf-gm-EwE"/>
                         </connections>
                     </button>
+                    <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXT-Cx-agr">
+                        <rect key="frame" x="43" y="57" width="403" height="192"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <clipView key="contentView" ambiguous="YES" misplaced="YES" id="8bI-tr-khk">
+                            <rect key="frame" x="1" y="1" width="401" height="190"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <collectionView ambiguous="YES" id="8f3-Et-YyR">
+                                    <rect key="frame" x="0.0" y="0.0" width="401" height="190"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <connections>
+                                        <binding destination="jSb-f5-JaX" name="content" keyPath="arrangedObjects" id="Pcb-B6-wdY"/>
+                                        <outlet property="itemPrototype" destination="kEQ-LK-m5U" id="o3A-aM-fzb"/>
+                                    </connections>
+                                </collectionView>
+                            </subviews>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" id="uP3-rh-fl6">
+                            <rect key="frame" x="1" y="144" width="233" height="15"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" id="85x-fZ-VAl">
+                            <rect key="frame" x="234" y="1" width="15" height="143"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="ulj-dD-Jho" firstAttribute="top" secondItem="ogf-wi-g4b" secondAttribute="top" id="AcN-J9-MIO"/>
@@ -762,26 +789,40 @@
         </window>
         <customObject id="C3b-IF-fgU" userLabel="App Manager" customClass="EMBAppManager"/>
         <userDefaultsController representsSharedInstance="YES" id="hAB-nf-IjR"/>
-        <view id="o9G-p2-Wcx" userLabel="Emoticon Item">
-            <rect key="frame" x="0.0" y="0.0" width="121" height="100"/>
+        <arrayController mode="entity" entityName="Emoticon" editable="NO" automaticallyRearrangesObjects="YES" id="jSb-f5-JaX" userLabel="Emoticon Array Controller">
+            <connections>
+                <binding destination="C3b-IF-fgU" name="contentArray" keyPath="emoticons" id="UUj-Ni-4MQ"/>
+                <binding destination="494" name="managedObjectContext" keyPath="managedObjectContext" id="7uf-HI-2ss"/>
+            </connections>
+        </arrayController>
+        <collectionViewItem id="kEQ-LK-m5U">
+            <connections>
+                <outlet property="view" destination="Hii-8L-afh" id="MEV-mq-tda"/>
+            </connections>
+        </collectionViewItem>
+        <view id="Hii-8L-afh">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RC0-RW-gD7">
-                    <rect key="frame" x="35" y="63" width="45" height="17"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zx8-qq-wTB">
+                    <rect key="frame" x="18" y="48" width="60" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Name:" id="BVd-m5-HOu">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="shortcut:" id="PZ8-3w-n4l">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xQ7-sT-6sv">
-                    <rect key="frame" x="31" y="28" width="38" height="17"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MxD-7t-Un3">
+                    <rect key="frame" x="29" y="20" width="38" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="TCR-5G-nPA">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="9un-JP-iXw">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        <connections>
+                            <binding destination="kEQ-LK-m5U" name="value" keyPath="representedObject.shortcut" id="Gyy-wI-yjd"/>
+                        </connections>
                     </textFieldCell>
                 </textField>
             </subviews>
