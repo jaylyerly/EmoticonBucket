@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface EMBAppManager : NSObject
+@interface EMBAppManager : NSObject <NSCollectionViewDelegate>
 
 @property (nonatomic, readonly) NSURL *dataUrl;
 @property (nonatomic, readonly) NSArray *emoticons;
-@property (nonatomic, readonly) IBOutlet NSCollectionView *collectionView;
+@property (nonatomic, strong) IBOutlet NSCollectionView *collectionView;
+@property (nonatomic, strong) IBOutlet NSArrayController *emoticonController;
 
 //+ (id)sharedManager;
+- (void) setup;
 - (IBAction) updateData:(id)sender;
 
 @end

@@ -27,7 +27,7 @@
     eIcon.hcID = aDict[@"id"];
     eIcon.link = aDict[@"links"][@"self"];
     eIcon.shortcut = aDict[@"shortcut"];
-    eIcon.url = aDict[@"shortcut"];
+    eIcon.url = aDict[@"url"];
     
     // get eIcon.imgData;
     

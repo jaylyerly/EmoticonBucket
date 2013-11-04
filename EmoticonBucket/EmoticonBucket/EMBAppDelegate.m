@@ -21,6 +21,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
+    [self.appManager setup];
     [self.appManager updateData:self];
 }
 
@@ -88,7 +89,8 @@
     
     NSURL *url = [applicationFilesDirectory URLByAppendingPathComponent:@"EmoticonBucket.storedata"];
     NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
-    if (![coordinator addPersistentStoreWithType:NSXMLStoreType configuration:nil URL:url options:nil error:&error]) {
+    // TODO: Switch to on disk storage (NSXMLStoreType) once the download manager can handling updating the data model
+    if (![coordinator addPersistentStoreWithType:NSInMemoryStoreType configuration:nil URL:url options:nil error:&error]) {
         [[NSApplication sharedApplication] presentError:error];
         return nil;
     }

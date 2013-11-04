@@ -22,6 +22,7 @@
 		EC2F0E5A1820911F004F5A17 /* EMBDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2F0E591820911F004F5A17 /* EMBDownloadManager.m */; };
 		EC2F0E5D182092D4004F5A17 /* EMBAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2F0E5C182092D4004F5A17 /* EMBAppManager.m */; };
 		EC2F0E6018213B8A004F5A17 /* Emoticon.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2F0E5F18213B8A004F5A17 /* Emoticon.m */; };
+		ECDCBDF8182334CC00D639FE /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = ECDCBDF7182334CC00D639FE /* check.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		EC2F0E5C182092D4004F5A17 /* EMBAppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMBAppManager.m; sourceTree = "<group>"; };
 		EC2F0E5E18213B8A004F5A17 /* Emoticon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Emoticon.h; sourceTree = "<group>"; };
 		EC2F0E5F18213B8A004F5A17 /* Emoticon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Emoticon.m; sourceTree = "<group>"; };
+		ECDCBDF7182334CC00D639FE /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 		EC2F0E2818207174004F5A17 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				ECDCBDF7182334CC00D639FE /* check.png */,
 				EC2F0E2918207174004F5A17 /* EmoticonBucket-Info.plist */,
 				EC2F0E2A18207174004F5A17 /* InfoPlist.strings */,
 				EC2F0E2D18207174004F5A17 /* main.m */,
@@ -258,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC2F0E2C18207174004F5A17 /* InfoPlist.strings in Resources */,
+				ECDCBDF8182334CC00D639FE /* check.png in Resources */,
 				EC2F0E3D18207174004F5A17 /* Images.xcassets in Resources */,
 				EC2F0E3218207174004F5A17 /* Credits.rtf in Resources */,
 				EC2F0E3818207174004F5A17 /* MainMenu.xib in Resources */,
@@ -495,6 +499,7 @@
 				EC2F0E5418207174004F5A17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EC2F0E5518207174004F5A17 /* Build configuration list for PBXNativeTarget "EmoticonBucketTests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +508,7 @@
 				EC2F0E5718207174004F5A17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

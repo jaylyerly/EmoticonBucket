@@ -10,6 +10,7 @@
 @class EMBAppManager;
 
 extern NSString * const kEMBDownloadFinished;
+extern NSString * const kEMBImageUpdateFinished;
 
 @interface EMBDownloadManager : NSObject
 
