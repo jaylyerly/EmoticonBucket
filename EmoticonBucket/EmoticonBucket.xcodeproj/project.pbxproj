@@ -23,6 +23,8 @@
 		EC2F0E5D182092D4004F5A17 /* EMBAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2F0E5C182092D4004F5A17 /* EMBAppManager.m */; };
 		EC2F0E6018213B8A004F5A17 /* Emoticon.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2F0E5F18213B8A004F5A17 /* Emoticon.m */; };
 		ECDCBDF8182334CC00D639FE /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = ECDCBDF7182334CC00D639FE /* check.png */; };
+		ECDCBDFB1828897700D639FE /* EMBCollectionViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDCBDFA1828897700D639FE /* EMBCollectionViewItem.m */; };
+		ECDCBDFE18288ADA00D639FE /* EMBColoredView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDCBDFD18288ADA00D639FE /* EMBColoredView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,10 @@
 		EC2F0E5E18213B8A004F5A17 /* Emoticon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Emoticon.h; sourceTree = "<group>"; };
 		EC2F0E5F18213B8A004F5A17 /* Emoticon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Emoticon.m; sourceTree = "<group>"; };
 		ECDCBDF7182334CC00D639FE /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
+		ECDCBDF91828897700D639FE /* EMBCollectionViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMBCollectionViewItem.h; sourceTree = "<group>"; };
+		ECDCBDFA1828897700D639FE /* EMBCollectionViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMBCollectionViewItem.m; sourceTree = "<group>"; };
+		ECDCBDFC18288ADA00D639FE /* EMBColoredView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMBColoredView.h; sourceTree = "<group>"; };
+		ECDCBDFD18288ADA00D639FE /* EMBColoredView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMBColoredView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +144,10 @@
 				EC2F0E5C182092D4004F5A17 /* EMBAppManager.m */,
 				EC2F0E581820911F004F5A17 /* EMBDownloadManager.h */,
 				EC2F0E591820911F004F5A17 /* EMBDownloadManager.m */,
+				ECDCBDF91828897700D639FE /* EMBCollectionViewItem.h */,
+				ECDCBDFA1828897700D639FE /* EMBCollectionViewItem.m */,
+				ECDCBDFC18288ADA00D639FE /* EMBColoredView.h */,
+				ECDCBDFD18288ADA00D639FE /* EMBColoredView.m */,
 			);
 			path = EmoticonBucket;
 			sourceTree = "<group>";
@@ -285,9 +295,11 @@
 			files = (
 				EC2F0E2E18207174004F5A17 /* main.m in Sources */,
 				EC2F0E5D182092D4004F5A17 /* EMBAppManager.m in Sources */,
+				ECDCBDFE18288ADA00D639FE /* EMBColoredView.m in Sources */,
 				EC2F0E3518207174004F5A17 /* EMBAppDelegate.m in Sources */,
 				EC2F0E5A1820911F004F5A17 /* EMBDownloadManager.m in Sources */,
 				EC2F0E3B18207174004F5A17 /* EmoticonBucket.xcdatamodeld in Sources */,
+				ECDCBDFB1828897700D639FE /* EMBCollectionViewItem.m in Sources */,
 				EC2F0E6018213B8A004F5A17 /* Emoticon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

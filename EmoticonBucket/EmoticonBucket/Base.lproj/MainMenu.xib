@@ -662,7 +662,7 @@
                             <rect key="frame" x="1" y="1" width="478" height="273"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <collectionView selectable="YES" id="8f3-Et-YyR">
+                                <collectionView focusRingType="exterior" selectable="YES" id="8f3-Et-YyR">
                                     <rect key="frame" x="0.0" y="0.0" width="478" height="273"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -824,18 +824,22 @@
                 <binding destination="494" name="managedObjectContext" keyPath="managedObjectContext" id="7uf-HI-2ss"/>
             </connections>
         </arrayController>
-        <collectionViewItem id="kEQ-LK-m5U">
+        <collectionViewItem id="kEQ-LK-m5U" customClass="EMBCollectionViewItem">
             <connections>
+                <outlet property="coloredView" destination="Hii-8L-afh" id="PZx-LV-klQ"/>
                 <outlet property="view" destination="Hii-8L-afh" id="MEV-mq-tda"/>
             </connections>
         </collectionViewItem>
-        <view id="Hii-8L-afh">
+        <view id="Hii-8L-afh" customClass="EMBColoredView">
             <rect key="frame" x="0.0" y="0.0" width="66" height="66"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MxD-7t-Un3">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MxD-7t-Un3">
                     <rect key="frame" x="-2" y="6" width="70" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="o0f-TK-CCx"/>
+                    </constraints>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="9un-JP-iXw">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -848,7 +852,7 @@
                         <binding destination="kEQ-LK-m5U" name="value" keyPath="representedObject.shortcut" id="VVw-KF-HgI"/>
                     </connections>
                 </textField>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RoF-Xh-5qz">
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RoF-Xh-5qz">
                     <rect key="frame" x="20" y="31" width="25" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" id="1fH-tc-ZlP"/>
@@ -858,13 +862,13 @@
                 </imageView>
             </subviews>
             <constraints>
-                <constraint firstItem="RoF-Xh-5qz" firstAttribute="centerX" secondItem="MxD-7t-Un3" secondAttribute="centerX" id="19k-0H-QG9"/>
-                <constraint firstItem="RoF-Xh-5qz" firstAttribute="top" secondItem="Hii-8L-afh" secondAttribute="top" constant="10" id="7wO-fK-HMU"/>
-                <constraint firstAttribute="bottom" secondItem="MxD-7t-Un3" secondAttribute="bottom" constant="6" id="BfW-qK-y0A"/>
-                <constraint firstItem="MxD-7t-Un3" firstAttribute="leading" secondItem="Hii-8L-afh" secondAttribute="leading" id="E7m-Fp-nzs"/>
-                <constraint firstItem="RoF-Xh-5qz" firstAttribute="leading" secondItem="Hii-8L-afh" secondAttribute="leading" constant="20" symbolic="YES" id="Vgy-hN-Lio"/>
-                <constraint firstItem="MxD-7t-Un3" firstAttribute="top" secondItem="RoF-Xh-5qz" secondAttribute="bottom" constant="8" symbolic="YES" id="Z1U-te-FhD"/>
-                <constraint firstAttribute="trailing" secondItem="MxD-7t-Un3" secondAttribute="trailing" id="rNR-PU-uwz"/>
+                <constraint firstAttribute="trailing" secondItem="RoF-Xh-5qz" secondAttribute="trailing" constant="21" id="0KG-6l-I3z"/>
+                <constraint firstItem="RoF-Xh-5qz" firstAttribute="top" secondItem="Hii-8L-afh" secondAttribute="top" constant="10" id="OgW-hK-uSP"/>
+                <constraint firstItem="RoF-Xh-5qz" firstAttribute="leading" secondItem="Hii-8L-afh" secondAttribute="leading" constant="20" symbolic="YES" id="PDP-cW-kgu"/>
+                <constraint firstAttribute="bottom" secondItem="MxD-7t-Un3" secondAttribute="bottom" constant="6" id="cGD-bc-tto"/>
+                <constraint firstItem="MxD-7t-Un3" firstAttribute="top" secondItem="RoF-Xh-5qz" secondAttribute="bottom" constant="8" symbolic="YES" id="eQa-sf-Lgd"/>
+                <constraint firstItem="MxD-7t-Un3" firstAttribute="leading" secondItem="Hii-8L-afh" secondAttribute="leading" id="vdZ-B9-EpI"/>
+                <constraint firstAttribute="trailing" secondItem="MxD-7t-Un3" secondAttribute="trailing" id="zFY-u3-u2W"/>
             </constraints>
         </view>
     </objects>
