@@ -11,7 +11,7 @@
 #import "EMBAppDelegate.h"
 #import "Emoticon.h"
 
-static const NSString* urlTemplate = @"https://api.hipchat.com/v2/emoticon?max-results=1000&auth_token=%@";
+static const NSString* baseUrlString = @"https://api.hipchat.com/v2/emoticon";
 
 @interface EMBAppManager () {
     EMBDownloadManager *_dlManager;
@@ -55,21 +55,12 @@ static const NSString* urlTemplate = @"https://api.hipchat.com/v2/emoticon?max-r
 //}
 
 - (IBAction) updateData:(id)sender {
-    [self.dlManager update];
+    [self.dlManager update:self.dataUrl];
 }
 
 - (NSURL *)dataUrl {
-    NSString *auth = [[NSUserDefaults standardUserDefaults] stringForKey:@"auth"];
-    NSString *urlString = [NSString stringWithFormat:[urlTemplate copy], auth];
-    return [NSURL URLWithString:urlString];
+    return [NSURL URLWithString:[baseUrlString copy]];
 }
-
-- (NSURL *)validateUrl:(NSURL *)url {
-    NSString *auth = [[NSUserDefaults standardUserDefaults] stringForKey:@"auth"];
-    NSString *urlString = [NSString stringWithFormat:[urlTemplate copy], auth];
-    return [NSURL URLWithString:urlString];
-}
-
 
 - (void)downloadFinished:(NSNotification *)notification{
     [self willChangeValueForKey:@"emoticons"];
@@ -85,9 +76,13 @@ static const NSString* urlTemplate = @"https://api.hipchat.com/v2/emoticon?max-r
 }
 
 - (NSArray *)emoticons {
-    NSManagedObjectModel   *mom = [(EMBAppDelegate*)[NSApplication sharedApplication].delegate managedObjectModel];
+    //NSManagedObjectModel   *mom = [(EMBAppDelegate*)[NSApplication sharedApplication].delegate managedObjectModel];
     NSManagedObjectContext *moc = [(EMBAppDelegate*)[NSApplication sharedApplication].delegate managedObjectContext];
-    NSFetchRequest *fetchRequest = [mom fetchRequestTemplateForName:@"AllEmoticons"];
+    //NSFetchRequest *fetchRequest = [mom fetchRequestTemplateForName:@"AllEmoticons"];
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Emoticon"];
+    fetchRequest.predicate = [NSPredicate predicateWithValue:YES];
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"shortcut" ascending:YES];
+    fetchRequest.sortDescriptors = @[sort];
     NSArray *eIcons = [moc executeFetchRequest:fetchRequest error:nil];
     return eIcons;
 }

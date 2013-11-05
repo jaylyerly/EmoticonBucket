@@ -32,12 +32,23 @@ NSString * const kEMBImageUpdateFinished = @"EMB-ImageUpdateFinished";
     return self;
 }
 
-- (void) update {
+- (NSURL *)validateUrl:(NSURL *)url {
+    NSString *auth = [[NSUserDefaults standardUserDefaults] stringForKey:@"auth"];
+    auth = [NSString stringWithFormat:@"auth_token=%@", auth];
+    
+    NSString *urlString = [[NSString alloc] initWithFormat:@"%@%@%@", [url absoluteString],
+                           [url query] ? @"&" : @"?", auth];
+    return [NSURL URLWithString:urlString];
+}
+
+
+- (void) update:(NSURL *)baseUrl {
     __block NSError *mocErr = nil;
     EMBAppDelegate *delegate = (EMBAppDelegate *)[NSApplication sharedApplication].delegate;
     NSManagedObjectContext *moc = delegate.managedObjectContext;
     
-    NSURLRequest *req = [NSURLRequest requestWithURL:self.appManager.dataUrl];
+    NSURL *reqUrl = [self validateUrl:baseUrl];
+    NSURLRequest *req = [NSURLRequest requestWithURL:reqUrl];
     NSImage *check = [NSImage imageNamed:@"check"];
     NSData *checkData = [self PNGRepresentationOfImage:check];
     
@@ -55,6 +66,15 @@ NSString * const kEMBImageUpdateFinished = @"EMB-ImageUpdateFinished";
              NSDictionary* parsedDict = [NSJSONSerialization JSONObjectWithData:data
                                                                   options:0
                                                                     error:&jsonParsingError];
+             NSString *nextUrlString = parsedDict[@"links"][@"next"];
+             // get more emticons!
+             if (nextUrlString) {
+                 NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:^{
+                     [self update:[NSURL URLWithString:nextUrlString]];
+                 }];
+                 [self.opQueue addOperation:op];
+             }
+             
              NSLog(@"all items:%@", parsedDict);
              NSArray *items = parsedDict[@"items"];
              NSLog(@"parsed data = %@", items);

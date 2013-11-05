@@ -15,6 +15,6 @@ extern NSString * const kEMBImageUpdateFinished;
 @interface EMBDownloadManager : NSObject
 
 - (instancetype) initWithManager:(EMBAppManager *)appManager;
-- (void) update;
+- (void) update:(NSURL *)baseUrl;
 
 @end
