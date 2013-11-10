@@ -22,6 +22,9 @@
 		EC2F0E5A1820911F004F5A17 /* EMBDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2F0E591820911F004F5A17 /* EMBDownloadManager.m */; };
 		EC2F0E5D182092D4004F5A17 /* EMBAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2F0E5C182092D4004F5A17 /* EMBAppManager.m */; };
 		EC2F0E6018213B8A004F5A17 /* Emoticon.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2F0E5F18213B8A004F5A17 /* Emoticon.m */; };
+		ECB59D0C18300D3D0088DDA9 /* EMBDownloadManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB59D0B18300D3D0088DDA9 /* EMBDownloadManagerTest.m */; };
+		ECB59D0E1830250A0088DDA9 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECB59D0D1830250A0088DDA9 /* OCMock.framework */; };
+		ECB59D1418302CEC0088DDA9 /* OCMock.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECB59D0D1830250A0088DDA9 /* OCMock.framework */; };
 		ECDCBDF8182334CC00D639FE /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = ECDCBDF7182334CC00D639FE /* check.png */; };
 		ECDCBDFB1828897700D639FE /* EMBCollectionViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDCBDFA1828897700D639FE /* EMBCollectionViewItem.m */; };
 		ECDCBDFE18288ADA00D639FE /* EMBColoredView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDCBDFD18288ADA00D639FE /* EMBColoredView.m */; };
@@ -36,6 +39,19 @@
 			remoteInfo = EmoticonBucket;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		ECB59D1318302CE00088DDA9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				ECB59D1418302CEC0088DDA9 /* OCMock.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		EC2F0E1E18207174004F5A17 /* EmoticonBucket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmoticonBucket.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +80,8 @@
 		EC2F0E5C182092D4004F5A17 /* EMBAppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMBAppManager.m; sourceTree = "<group>"; };
 		EC2F0E5E18213B8A004F5A17 /* Emoticon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Emoticon.h; sourceTree = "<group>"; };
 		EC2F0E5F18213B8A004F5A17 /* Emoticon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Emoticon.m; sourceTree = "<group>"; };
+		ECB59D0B18300D3D0088DDA9 /* EMBDownloadManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMBDownloadManagerTest.m; sourceTree = "<group>"; };
+		ECB59D0D1830250A0088DDA9 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMock.framework; sourceTree = "<group>"; };
 		ECDCBDF7182334CC00D639FE /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
 		ECDCBDF91828897700D639FE /* EMBCollectionViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMBCollectionViewItem.h; sourceTree = "<group>"; };
 		ECDCBDFA1828897700D639FE /* EMBCollectionViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMBCollectionViewItem.m; sourceTree = "<group>"; };
@@ -85,6 +103,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC2F0E4518207174004F5A17 /* Cocoa.framework in Frameworks */,
+				ECB59D0E1830250A0088DDA9 /* OCMock.framework in Frameworks */,
 				EC2F0E4418207174004F5A17 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,6 +133,7 @@
 		EC2F0E2018207174004F5A17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ECB59D0D1830250A0088DDA9 /* OCMock.framework */,
 				EC2F0E2118207174004F5A17 /* Cocoa.framework */,
 				EC2F0E4318207174004F5A17 /* XCTest.framework */,
 				EC2F0E2318207174004F5A17 /* Other Frameworks */,
@@ -169,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				EC2F0E4E18207174004F5A17 /* EmoticonBucketTests.m */,
+				ECB59D0B18300D3D0088DDA9 /* EMBDownloadManagerTest.m */,
 				EC2F0E4918207174004F5A17 /* Supporting Files */,
 			);
 			path = EmoticonBucketTests;
@@ -220,6 +241,7 @@
 				EC2F0E3E18207174004F5A17 /* Sources */,
 				EC2F0E3F18207174004F5A17 /* Frameworks */,
 				EC2F0E4018207174004F5A17 /* Resources */,
+				ECB59D1318302CE00088DDA9 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -308,6 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECB59D0C18300D3D0088DDA9 /* EMBDownloadManagerTest.m in Sources */,
 				EC2F0E4F18207174004F5A17 /* EmoticonBucketTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,6 +483,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
+					/Users/jayl/git/EmoticonBucket/EmoticonBucket,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EmoticonBucket/EmoticonBucket-Prefix.pch";
@@ -482,6 +506,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
+					/Users/jayl/git/EmoticonBucket/EmoticonBucket,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EmoticonBucket/EmoticonBucket-Prefix.pch";
