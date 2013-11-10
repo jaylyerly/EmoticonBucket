@@ -34,11 +34,15 @@ NSString * const kEMBImageUpdateFinished = @"EMB-ImageUpdateFinished";
 
 - (NSURL *)validateUrl:(NSURL *)url {
     NSString *auth = [[NSUserDefaults standardUserDefaults] stringForKey:@"auth"];
-    auth = [NSString stringWithFormat:@"auth_token=%@", auth];
-    
-    NSString *urlString = [[NSString alloc] initWithFormat:@"%@%@%@", [url absoluteString],
-                           [url query] ? @"&" : @"?", auth];
-    return [NSURL URLWithString:urlString];
+    if (auth){
+        auth = [NSString stringWithFormat:@"auth_token=%@", auth];
+        
+        NSString *urlString = [[NSString alloc] initWithFormat:@"%@%@%@", [url absoluteString],
+                               [url query] ? @"&" : @"?", auth];
+        return [NSURL URLWithString:urlString];
+    }else{
+        return url;
+    }
 }
 
 

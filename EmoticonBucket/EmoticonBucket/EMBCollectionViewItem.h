@@ -9,6 +9,8 @@
 #import <Cocoa/Cocoa.h>
 @class EMBColoredView;
 
+extern NSString * const kEMBSelectionChanged;
+
 @interface EMBCollectionViewItem : NSCollectionViewItem
 @property (nonatomic, strong) IBOutlet EMBColoredView *coloredView;
 

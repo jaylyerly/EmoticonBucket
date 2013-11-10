@@ -10,6 +10,7 @@
 #import "EMBDownloadManager.h"
 #import "EMBAppDelegate.h"
 #import "Emoticon.h"
+#import "EMBCollectionViewItem.h"
 
 static const NSString* baseUrlString = @"https://api.hipchat.com/v2/emoticon";
 
@@ -62,6 +63,17 @@ static const NSString* baseUrlString = @"https://api.hipchat.com/v2/emoticon";
     return [NSURL URLWithString:[baseUrlString copy]];
 }
 
+- (void)selectionChanged:(NSNotification *)notification{
+    Emoticon *eIcon = (Emoticon*)self.emoticonController.selectedObjects[0];
+    NSString *txt = [NSString stringWithFormat:@" (%@) ", eIcon.shortcut];
+
+    NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
+    [pasteboard clearContents];
+    [pasteboard declareTypes:[NSArray arrayWithObject:NSStringPboardType] owner:nil];
+    [pasteboard setString:txt forType:NSStringPboardType];
+
+}
+
 - (void)downloadFinished:(NSNotification *)notification{
     [self willChangeValueForKey:@"emoticons"];
 
@@ -95,6 +107,10 @@ static const NSString* baseUrlString = @"https://api.hipchat.com/v2/emoticon";
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(downloadFinished:)
                                                  name:kEMBImageUpdateFinished
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(selectionChanged:)
+                                                 name:kEMBSelectionChanged
                                                object:nil];
 }
 

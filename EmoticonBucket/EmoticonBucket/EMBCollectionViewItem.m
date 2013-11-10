@@ -9,6 +9,8 @@
 #import "EMBCollectionViewItem.h"
 #import "EMBColoredView.h"
 
+NSString * const kEMBSelectionChanged = @"EMB-SelectionChange";
+
 @interface EMBCollectionViewItem ()
 
 @end
@@ -20,6 +22,7 @@
     EMBColoredView *cv = (EMBColoredView *)self.view;
     cv.color = selected ? [NSColor grayColor] : [NSColor whiteColor];
     [cv setNeedsDisplay:YES];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kEMBSelectionChanged object:nil];
 }
 
 @end
