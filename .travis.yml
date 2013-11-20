@@ -5,5 +5,5 @@ xcode_scheme: EmoticonBucket
 
 before_script: travis/before_script.sh
 script: travis/script.sh
-after_success: script: travis/after_script.sh
+after_success: travis/after_script.sh
 
