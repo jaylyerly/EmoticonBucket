@@ -64,6 +64,7 @@ static const NSString* baseUrlString = @"https://api.hipchat.com/v2/emoticon";
 }
 
 - (void)selectionChanged:(NSNotification *)notification{
+    return;
     Emoticon *eIcon = (Emoticon*)self.emoticonController.selectedObjects[0];
     NSString *txt = [NSString stringWithFormat:@" (%@) ", eIcon.shortcut];
 

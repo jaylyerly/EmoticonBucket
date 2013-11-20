@@ -1,4 +1,9 @@
 language: objective-c
+
+xcode_project: EmoticonBucket/EmoticonBucket.xcodeproj
+xcode_scheme: EmoticonBucket
+
 before_script: travis/before_script.sh
 script: travis/script.sh
+after_success: script: travis/after_script.sh
 

@@ -22,6 +22,8 @@
     EMBAppDelegate *delegate = (EMBAppDelegate *)[NSApplication sharedApplication].delegate;
     NSManagedObjectContext *context = [delegate managedObjectContext];
     
+    [self removeEmoticonWithId:[aDict[@"id"] integerValue] fromContext:context];
+
     Emoticon* eIcon = (Emoticon*)[NSEntityDescription insertNewObjectForEntityForName:@"Emoticon" inManagedObjectContext:context];
 
     eIcon.hcID = aDict[@"id"];
@@ -31,8 +33,18 @@
     
     // get eIcon.imgData;
     
-    
     return eIcon;
+}
+
++ (void) removeEmoticonWithId:(NSUInteger)theId fromContext:(NSManagedObjectContext *)context
+{
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Emoticon"];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"hcID == %@", @(theId)];
+    NSArray *eIcons = [context executeFetchRequest:fetchRequest error:nil];
+    for (Emoticon *e in eIcons) {
+        NSLog(@"Deleting --> %@", e);
+        [context deleteObject:e];
+    }
 }
 
 - (NSString *)description {
